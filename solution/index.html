@@ -42,9 +42,6 @@
     <title>Fresas y Fresones de Aranjuez - Huerta Real y Villa (Demo Inaccesible)</title>
 
     <style>
-        /* ==========================================================================
-       RESET Y ESTILOS GLOBALES
-       ========================================================================== */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -62,7 +59,6 @@
             line-height: 1.5;
         }
 
-        /* BARRA SUPERIOR Y CABECERA */
         .top-announcement {
             /* FALLO A11Y #7: Contraste bajo ~1.8:1 */
             background: #ff6b6b;
@@ -182,7 +178,6 @@
             user-select: none;
         }
 
-        /* HERO BANNER */
         .hero-banner {
             background: linear-gradient(135deg, #fff0eb 0%, #ffe8d6 100%);
             padding: 60px 32px;
@@ -249,7 +244,6 @@
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
         }
 
-        /* CATÁLOGO DE PRODUCTOS */
         .catalog-container {
             max-width: 1200px;
             margin: 40px auto;
@@ -427,7 +421,6 @@
             color: #e5e5e5;
         }
 
-        /* ENLACE PARA ABRIR MODAL DE ALÉRGENOS */
         .info-banner-box {
             background: #ffffff;
             border: 1px solid #eedede;
@@ -469,7 +462,6 @@
             color: #888;
         }
 
-        /* TABLA NUTRICIONAL HECHA CON DIVS */
         .nutri-table {
             border: 1px solid #e5e5e5;
             border-radius: 8px;
@@ -494,7 +486,6 @@
             border-bottom: 1px solid #f0f0f0;
         }
 
-        /* SECCIÓN DE SUSCRIPCIÓN */
         .newsletter-section {
             background: #fff5f5;
             border-top: 1px solid #fed7cc;
@@ -567,7 +558,6 @@
             margin-top: 8px;
         }
 
-        /* PIE DE PÁGINA */
         .footer-wrapper {
             background: #ffffff;
             padding: 40px 32px 24px;
@@ -651,7 +641,6 @@
 
 <body>
 
-    <!-- BARRA DE AVISOS -->
     <div class="top-announcement">
         🍓 Fresas y Fresones recolectados al alba en las Huertas Reales de Aranjuez (Madrid) • Envío en frío 24h
     </div>
@@ -664,7 +653,6 @@
         </div>
     </div>
 
-    <!-- CABECERA -->
     <div class="header-wrapper">
         <div class="brand-logo-area">
             <!-- FALLO A11Y #6: Logo sin alt -->
@@ -691,7 +679,6 @@
         </div>
     </div>
 
-    <!-- HERO BANNER -->
     <div class="hero-banner">
         <div class="hero-content">
             <div class="hero-tag">Cosecha Real Aranjuez</div>
@@ -713,7 +700,6 @@
         </div>
     </div>
 
-    <!-- CATÁLOGO DE PRODUCTOS -->
     <div class="catalog-container" id="productos">
         <div class="section-header-box">
             <!-- FALLO A11Y #5: Salto de <h1> a <h4> -->
@@ -724,7 +710,6 @@
 
         <div class="products-grid">
 
-            <!-- PRODUCTO 1 -->
             <div class="product-card">
                 <!-- Sin alt -->
                 <img src="./public/cesta-fresones.jpg" class="product-img">
@@ -776,7 +761,6 @@
                 </div>
             </div>
 
-            <!-- PRODUCTO 2 -->
             <div class="product-card">
                 <img src="./public/fresa-tradicional.jpg" class="product-img" alt="Fresas Silvestres">
                 <div class="product-info">
@@ -824,7 +808,6 @@
                 </div>
             </div>
 
-            <!-- PRODUCTO 3 -->
             <div class="product-card">
                 <img src="./public/mermelada-fresones.jpg" class="product-img">
                 <div class="product-info">
@@ -871,7 +854,6 @@
                 </div>
             </div>
 
-            <!-- PRODUCTO 4 -->
             <div class="product-card">
                 <img src="./public/tarta-fresones.jpg" alt="Tarta de Fresones" class="product-img">
                 <div class="product-info">
@@ -974,7 +956,6 @@
         </div>
     </div>
 
-    <!-- FORMULARIO DE SUSCRIPCIÓN -->
     <div class="newsletter-section">
         <div class="newsletter-content">
             <h3 class="newsletter-title">Suscríbete para recibir fresones frescos de Aranjuez</h3>
@@ -998,7 +979,6 @@
         </div>
     </div>
 
-    <!-- PIE DE PÁGINA -->
     <div class="footer-wrapper">
         <div class="footer-grid">
             <div>
