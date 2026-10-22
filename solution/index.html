@@ -9,8 +9,6 @@
   Al auditar esta página con Google Lighthouse, la puntuación de Accesibilidad caerá a ~19 / 100 🛑.
   
   ÍNDICE DE PROBLEMAS DELIBERADOS INCLUIDOS:
-  4. AUSENCIA TOTAL DE ETIQUETAS SEMÁNTICAS (Todo maquetado con <div>) (WCAG 1.3.1 - Nivel A)
-  6. IMÁGENES SIN 'alt' O CON NOMBRES DE ARCHIVO INÚTILES (WCAG 1.1.1 - Nivel A)
   7. CONTRASTES DE COLOR INSUFICIENTES (< 4.5:1 y < 3:1)  (WCAG 1.4.3 - Nivel AA)
   8. BOTONES FALSOS HECHOS CON <div> Y <span> SIN role="button" NI tabindex="0" (WCAG 2.1.1, 4.1.2 - Nivel A)
   9. BOTONES DE COMPRA SIN BORDE Y CON CONTRASTE CASI NULO (~1.1:1) (WCAG 1.4.3 & 1.4.11)
@@ -685,11 +683,11 @@
             z-index: 1000;
         }
     </style>
-    <script src="/_aistudio-iframe.js?v=6634132a"></script>
 </head>
 
 <body>
 
+    <header>
     <div class="top-announcement">
         🍓 Fresas y Fresones recolectados al alba en las Huertas Reales de Aranjuez (Madrid) • Envío en frío 24h
     </div>
@@ -713,7 +711,7 @@
             <input type="text" class="search-input" placeholder="Buscar fresones de Aranjuez, mermeladas reales...">
         </div>
 
-        <div class="nav-bar">
+        <nav class="nav-bar" aria-label="Navegación principal">
             <a href="#inicio" class="nav-link">Inicio</a>
             <a href="#productos" class="nav-link">Productos</a>
             <a href="#nosotros" class="nav-link">Nosotros</a>
@@ -723,9 +721,11 @@
             <button class="cart-pill" onclick="mostrarCarrito()">
                 🛒 Carrito (<span id="cart-counter">0</span>)
             </button>
-        </div>
+        </nav>
     </div>
+    </header>
 
+    <main>
     <div class="hero-banner">
         <div class="hero-content">
             <div class="hero-tag">Cosecha Real Aranjuez</div>
@@ -997,7 +997,10 @@
             </div>
         </div>
     </div>
+    <div id="toast-msg"></div>
+    </main>
 
+    <footer>
     <div class="footer-wrapper">
         <div class="footer-grid">
             <div>
@@ -1043,8 +1046,7 @@
             la huerta.
         </div>
     </div>
-
-    <div id="toast-msg"></div>
+    </footer>
 
     <script>
         let carritoContador = 0;
