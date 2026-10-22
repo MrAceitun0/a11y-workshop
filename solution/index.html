@@ -9,8 +9,6 @@
   Al auditar esta página con Google Lighthouse, la puntuación de Accesibilidad caerá a ~19 / 100 🛑.
   
   ÍNDICE DE PROBLEMAS DELIBERADOS INCLUIDOS:
-  1. FALTA DE ATRIBUTO 'lang' en la etiqueta <html> (WCAG 3.1.1 - Nivel A)
-  2. ZOOM BLOQUEADO EN VIEWPORT con user-scalable=no (WCAG 1.4.4 - Nivel AA)
   3. FOCO VISUAL COMPLETAMENTE ANULADO CON '* { outline: none !important; }' (WCAG 2.4.7 - Nivel AA)
   4. AUSENCIA TOTAL DE ETIQUETAS SEMÁNTICAS (Todo maquetado con <div>) (WCAG 1.3.1 - Nivel A)
   5. DESORDEN SEVERO EN LA JERARQUÍA DE ENCABEZADOS (h1 -> h4 -> h6 -> h2) (WCAG 1.3.1, 2.4.6)
@@ -33,13 +31,12 @@
 -->
 
 <!-- FALLO A11Y #1: Falta el atributo lang="es". Lighthouse lo detectará como: "<html> element does not have a [lang] attribute" -->
-<html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <!-- FALLO A11Y #2: user-scalable=no y maximum-scale=1.0 bloquean la capacidad de ampliar el texto en móviles -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Fresas y Fresones de Aranjuez - Huerta Real y Villa (Demo Inaccesible)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresas y Fresones de Aranjuez - Huerta Real y Villa</title>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍓</text></svg>">
 
