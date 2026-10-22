@@ -10,12 +10,10 @@
   
   ÍNDICE DE PROBLEMAS DELIBERADOS INCLUIDOS:
   4. AUSENCIA TOTAL DE ETIQUETAS SEMÁNTICAS (Todo maquetado con <div>) (WCAG 1.3.1 - Nivel A)
-  5. DESORDEN SEVERO EN LA JERARQUÍA DE ENCABEZADOS (h1 -> h4 -> h6 -> h2) (WCAG 1.3.1, 2.4.6)
   6. IMÁGENES SIN 'alt' O CON NOMBRES DE ARCHIVO INÚTILES (WCAG 1.1.1 - Nivel A)
   7. CONTRASTES DE COLOR INSUFICIENTES (< 4.5:1 y < 3:1)  (WCAG 1.4.3 - Nivel AA)
   8. BOTONES FALSOS HECHOS CON <div> Y <span> SIN role="button" NI tabindex="0" (WCAG 2.1.1, 4.1.2 - Nivel A)
   9. BOTONES DE COMPRA SIN BORDE Y CON CONTRASTE CASI NULO (~1.1:1) (WCAG 1.4.3 & 1.4.11)
-  10. ORDEN DE TABULACIÓN ROTO CON tabindex POSITIVOS DESORDENADOS (WCAG 2.4.3 - Nivel A)
   11. INPUTS DE FORMULARIO Y BÚSQUEDA SIN <label> NI NOMBRE ACCESIBLE (WCAG 3.3.2, 4.1.2 - Nivel A)
   12. VALIDACIÓN DE ERRORES COMUNICADA ÚNICAMENTE CON BORDE ROJO SIN aria-invalid (WCAG 3.3.1 - Nivel A)
   13. DISPONIBILIDAD Y STOCK TRANSMITIDOS EXCLUSIVAMENTE CON COLOR (WCAG 1.4.1 - Nivel A)
@@ -712,19 +710,19 @@
 
         <div class="search-box-container">
             <!-- FALLO A11Y #11: Sin label -->
-            <input tabindex="1" type="text" class="search-input" placeholder="Buscar fresones de Aranjuez, mermeladas reales...">
+            <input type="text" class="search-input" placeholder="Buscar fresones de Aranjuez, mermeladas reales...">
         </div>
 
         <div class="nav-bar">
-            <a href="#inicio" class="nav-link" tabindex="2">Inicio</a>
-            <a href="#productos" class="nav-link" tabindex="3">Productos</a>
-            <a href="#nosotros" class="nav-link" tabindex="4">Nosotros</a>
-            <a href="#contacto" class="nav-link" tabindex="5">Contacto</a>
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#productos" class="nav-link">Productos</a>
+            <a href="#nosotros" class="nav-link">Nosotros</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
 
             <!-- FALLO A11Y #8: Div carrito -->
-            <div class="cart-pill" onclick="mostrarCarrito()">
+            <button class="cart-pill" onclick="mostrarCarrito()">
                 🛒 Carrito (<span id="cart-counter">0</span>)
-            </div>
+            </button>
         </div>
     </div>
 
@@ -751,8 +749,7 @@
 
     <div class="catalog-container" id="productos">
         <div class="section-header-box">
-            <!-- FALLO A11Y #5: Salto de <h1> a <h4> -->
-            <h4 class="section-title">Fresas y Fresones Reales de Aranjuez</h4>
+            <h2 class="section-title">Fresas y Fresones Reales de Aranjuez</h2>
             <p class="section-desc">Recolectadas una a una a mano en las vegas históricas del río Tajo y el Real Cortijo
                 de San Isidro.</p>
         </div>
@@ -764,7 +761,7 @@
                     alt="Cesta Real Fresón de Aranjuez Selección (2 kg)">
                 <div class="product-info">
                     <div class="product-badge">Fresón de Aranjuez</div>
-                    <h6 class="product-title">Cesta Real Fresón de Aranjuez Selección (2 kg)</h6>
+                    <h3 class="product-title">Cesta Real Fresón de Aranjuez Selección (2 kg)</h3>
                     <p class="product-desc">Fresones de gran calibre recolectados a mano en las huertas históricas del
                         Tajo. Muy carnosos y aromáticos.</p>
 
@@ -848,7 +845,7 @@
                     alt="Mermelada Artesana de Fresón de Aranjuez (350g)">
                 <div class="product-info">
                     <div class="product-badge">Real Cortijo</div>
-                    <h6 class="product-title">Mermelada Artesana de Fresón de Aranjuez (350g)</h6>
+                    <h3 class="product-title">Mermelada Artesana de Fresón de Aranjuez (350g)</h3>
                     <p class="product-desc">Elaborada con 85% de fruta de las Huertas de San Isidro y azúcar de caña.
                         Sin aditivos.</p>
 
@@ -887,7 +884,7 @@
                 <img src="./public/tarta-fresones.jpg" alt="Tarta de Fresones" class="product-img">
                 <div class="product-info">
                     <div class="product-badge">Obrador Real</div>
-                    <h6 class="product-title">Tarta Real de Fresones de Aranjuez y Nata</h6>
+                    <h3 class="product-title">Tarta Real de Fresones de Aranjuez y Nata</h3>
                     <p class="product-desc">Elaborada a diario en nuestro obrador con bizcocho genovés ligero y fresones
                         recién cosechados.</p>
 
