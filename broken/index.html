@@ -10,9 +10,6 @@
 
 
     <style>
-        /* ==========================================================================
-       RESET Y ESTILOS GLOBALES
-       ========================================================================== */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -1020,7 +1017,6 @@
         function suscribirNewsletter() {
             const emailInput = document.getElementById('news-email');
             if (!emailInput || !emailInput.value || !emailInput.value.includes('@')) {
-                // FALLO A11Y: Solo pone el borde rojo sin texto descriptivo ni aria-invalid
                 if (emailInput) emailInput.classList.add('error');
                 mostrarToast('Error en el formulario');
             } else {
