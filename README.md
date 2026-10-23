@@ -3,7 +3,7 @@ Guía para el taller Coding Dojo: Rescatando webs inaccesibles paso a paso - est
 
 Creado por: [Sergi Olives](https://www.linkedin.com/in/sergiolives/)
 
-En este taller vamos a implementar un chatbot para responder preguntas sobre tu empresa utilizando RAG en Gemini y con el mínimo código necesario en n8n para un taller sin mucha carga técnica.
+En este taller vamos a implementar accesibilidad en una web completamente inaccesible diseñada para este mismo taller. Siguiendo la web original vamos a ir analizando la accesibilidad usando herramientas de automatización como Lighthouse, Axe y Chrome DevTools para mejorar la experiencia de todos los usuarios.
 
 [Google Slides](https://docs.google.com/presentation/d/1Ul1tQYMZodUqa-noJB60eDFFNd6UaU45ygP9c6SmAos/edit?usp=sharing)
 
@@ -28,7 +28,7 @@ npx serve solution
 * Debes obtener una puntuación de 100 en Lighthouse
 * Acaba con todos los problemas detectados en Axe DevTools
 * Usa la web solo con teclado y ratón
-* Usa la web con el VoiceOver
+* Usa la web con el VoiceOver - asegúrate de tener las voces descargadas para testear
   - en Mac **Option + Command + F5**
   - en Windows **Ctrl + Win + Enter**
 
