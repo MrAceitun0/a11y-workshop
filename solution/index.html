@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<!-- 
-  ÍNDICE DE PROBLEMAS DELIBERADOS INCLUIDOS:    
-  17. MODAL DE ALÉRGENOS SIN role="dialog", SIN TRAMPA DE FOCO Y SIN TECLA ESCAPE (WCAG 2.1.2 & 4.1.2)
-  18. TABLA NUTRICIONAL MAQUETADA CON <div> SIN ENCABEZADOS <th> (WCAG 1.3.1 - Nivel A)
-  =============================================================================
--->
 
 <html lang="es">
 
@@ -488,6 +482,7 @@
         }
 
         .nutri-table {
+            width: 100%;
             border: 1px solid #e5e5e5;
             border-radius: 8px;
             overflow: hidden;
@@ -510,6 +505,7 @@
             justify-content: space-between;
             border-bottom: 1px solid #f0f0f0;
         }
+
 
         .newsletter-section {
             background: #fff5f5;
@@ -923,26 +919,26 @@
 
             <!-- TABLA CON DIVS EN VEZ DE <table> Y <th> -->
             <table class="nutri-table">
-                <th class="nutri-header">
-                    <div>Componente</div>
-                    <div>Por 100g</div>
-                </th>
-                <th class="nutri-row">
-                    <div>Valor Energético</div>
-                    <div>32 kcal / 136 kJ</div>
-                </th>
-                <th class="nutri-row">
-                    <div>Azúcares naturales (Fructosa del Tajo)</div>
-                    <div>4.9 g</div>
-                </th>
-                <th class="nutri-row">
-                    <div>Vitamina C</div>
-                    <div>58.8 mg (98% CDR)</div>
-                </th>
-                <th class="nutri-row">
-                    <div>Alérgenos declarados</div>
-                    <div style="color: #c9184a; font-weight: bold;">Sin sulfitos ni gluten</div>
-                </th>
+                <tr class="nutri-header">
+                    <th>Componente</th>
+                    <th>Por 100g</th>
+                </tr>
+                <tr class="nutri-row">
+                    <td>Valor Energético</td>
+                    <td>32 kcal / 136 kJ</td>
+                </tr>
+                <tr class="nutri-row">
+                    <td>Azúcares naturales (Fructosa del Tajo)</td>
+                    <td>4.9 g</td>
+                </tr>
+                <tr class="nutri-row">
+                    <td>Vitamina C</td>
+                    <td>58.8 mg (98% CDR)</td>
+                </tr>
+                <tr class="nutri-row">
+                    <td>Alérgenos declarados</td>
+                    <td style="color: #c9184a; font-weight: bold;">Sin sulfitos ni gluten</td>
+                </tr>
             </table>
 
             <div style="margin-top: 20px; text-align: right;">
