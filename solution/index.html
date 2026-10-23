@@ -743,7 +743,7 @@
                     <div class="product-badge">Fresón de Aranjuez</div>
                     <h3 class="product-title">Cesta Real Fresón de Aranjuez Selección (2 kg)</h3>
                     <p class="product-desc">Fresones de gran calibre recolectados a mano en las huertas históricas del
-                        Tajo. Muy carnosos y aromáticos.</p>
+                        Tajo. Muy carnosos.</p>
 
                     <div class="stock-row">
                         <span class="stock-dot stock-green" title="En stock"></span>
@@ -958,7 +958,8 @@
 
             <div class="form-row">
                 <label for="news-name" class="visually-hidden">Nombre</label>
-                <input type="text" id="news-name" class="newsletter-input" placeholder="Tu nombre...">
+                <input type="text" id="news-name" class="newsletter-input" placeholder="Tu nombre..."
+                    aria-describedby="news-name-error">
                 <label for="news-email" class="visually-hidden">Correo electrónico</label>
                 <input type="email" id="news-email" class="newsletter-input" placeholder="Tu correo electrónico..."
                     aria-describedby="news-email-error">
@@ -967,6 +968,7 @@
                 </button>
             </div>
 
+            <p id="news-name-error" class="field-error" role="alert"></p>
             <p id="news-email-error" class="field-error" role="alert"></p>
 
             <div class="terms-row">
@@ -1102,25 +1104,32 @@
             if (modal) modal.style.display = 'none';
         }
 
-        function suscribirNewsletter() {
-            const nameInput = document.getElementById('');
-            const emailInput = document.getElementById('news-email');
-            const errorMsg = document.getElementById('news-email-error');
-            if (!emailInput || !emailInput.value || !emailInput.value.includes('@')) {
-                if (emailInput) {
-                    emailInput.setAttribute('aria-invalid', 'true');
-                    emailInput.focus();
-                }
-                if (errorMsg) {
-                    errorMsg.textContent = '⚠ Error: introduce un correo electrónico válido, por ejemplo nombre@dominio.es';
-                }
+        function validarCampo(input, errorMsg, esValido, mensaje) {
+            if (esValido) {
+                input.removeAttribute('aria-invalid');
+                errorMsg.textContent = '';
             } else {
-                if (emailInput) {
-                    emailInput.removeAttribute('aria-invalid');
-                }
-                if (errorMsg) {
-                    errorMsg.textContent = '';
-                }
+                input.setAttribute('aria-invalid', 'true');
+                errorMsg.textContent = mensaje;
+            }
+        }
+
+        function suscribirNewsletter() {
+            const nameInput = document.getElementById('news-name');
+            const emailInput = document.getElementById('news-email');
+            const nombreValido = nameInput.value.trim() !== '';
+            const emailValido = emailInput.value.includes('@');
+
+            validarCampo(nameInput, document.getElementById('news-name-error'), nombreValido,
+                '⚠ Error: introduce tu nombre');
+            validarCampo(emailInput, document.getElementById('news-email-error'), emailValido,
+                '⚠ Error: introduce un correo electrónico válido, por ejemplo nombre@dominio.es');
+
+            if (!nombreValido) {
+                nameInput.focus();
+            } else if (!emailValido) {
+                emailInput.focus();
+            } else {
                 mostrarToast('¡Gracias por suscribirte al boletín de Fresas y Fresones de Aranjuez!');
             }
         }
