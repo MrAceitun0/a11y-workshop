@@ -320,23 +320,96 @@
 
         .qty-row {
             display: flex;
-            flex-direction: column;
-            gap: 3px;
-            font-size: 11px;
-            color: #666666;
-            margin-bottom: 8px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 10px;
         }
 
-        .scrambled-select {
-            width: 100%;
-            background: #faf8f7;
-            border: 1px solid #767676;
-            font-size: 11px;
-            padding: 6px;
-            border-radius: 4px;
-            font-family: monospace;
-            color: #333333;
-            outline: none !important;
+        .qty-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #555555;
+        }
+
+        .qty-select {
+            background: #ffffff;
+            border: 1.5px solid #8c7a7a;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #2b2b2b;
+            cursor: pointer;
+        }
+
+        .qty-select:focus {
+            outline: none;
+        }
+
+        .qty-stepper {
+            display: inline-flex;
+            align-items: center;
+            background: #ffffff;
+            border: 1.5px solid #8c7a7a;
+            border-radius: 24px;
+            padding: 3px 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .qty-stepper:focus-within {
+            border-color: #a4133c;
+            box-shadow: 0 0 0 3px rgba(164, 19, 60, 0.15);
+        }
+
+        .qty-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border: none;
+            background: #fbf3f4;
+            color: #a4133c;
+            border-radius: 50%;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 1;
+            transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+            user-select: none;
+        }
+
+        .qty-btn:hover {
+            background: #a4133c;
+            color: #ffffff;
+        }
+
+        .qty-btn:active {
+            transform: scale(0.92);
+        }
+
+        .qty-input {
+            width: 38px;
+            border: none;
+            background: transparent;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #2b2b2b;
+            padding: 0 2px;
+            -moz-appearance: textfield;
+        }
+
+        .qty-input::-webkit-outer-spin-button,
+        .qty-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .qty-input:focus {
+            outline: none;
         }
 
         .price-row {
@@ -683,21 +756,18 @@
                     <a href="#detalles" class="more-link">Leer más</a>
 
                     <div class="qty-row">
-                        <span>Cantidad:</span>
-                        <select class="scrambled-select">
-                            <option value="17">17 cestas (¡salto!)</option>
-                            <option value="3">3 cestas</option>
-                            <option value="85">85 cestas</option>
-                            <option value="1">1 cesta (actual)</option>
-                            <option value="9">9 cestas</option>
-                            <option value="0">0 cestas (¡pedido nulo!)</option>
-                            <option value="44">44 cestas</option>
-                            <option value="2">2 cestas</option>
-                            <option value="73">73 cestas</option>
-                            <option value="5">5 cestas</option>
-                            <option value="12">12 cestas</option>
-                            <option value="4">4 cestas</option>
-                            <option value="30">30 cestas</option>
+                        <span class="qty-label">Cantidad:</span>
+                        <select id="qty-cesta" class="qty-select">
+                            <option>4</option>
+                            <option>2</option>
+                            <option>world</option>
+                            <option>12</option>
+                            <option>5</option>
+                            <option>7</option>
+                            <option>7</option>
+                            <option>hello</option>
+                            <option>99</option>
+                            <option>10</option>
                         </select>
                     </div>
 
@@ -706,7 +776,7 @@
                         <span class="tax-notice">(I.V.A. no incluido)</span>
                     </div>
 
-                    <div class="add-to-cart-btn" onclick="anadirAlCarrito('Cesta Real Fresón Aranjuez 2kg')">
+                    <div class="add-to-cart-btn" onclick="anadirAlCarrito('Cesta Real Fresón Aranjuez 2kg', 'qty-cesta')">
                         Añadir al carrito
                     </div>
                 </div>
@@ -729,22 +799,15 @@
                     <a href="#detalles" class="more-link">Leer más</a>
 
                     <div class="qty-row">
-                        <span>Cantidad:</span>
-                        <select class="scrambled-select">
-                            <option value="17">17 bandejas (¡salto!)</option>
-                            <option value="3">3 bandejas</option>
-                            <option value="85">85 bandejas</option>
-                            <option value="1">1 bandeja (actual)</option>
-                            <option value="9">9 bandejas</option>
-                            <option value="0">0 bandejas (¡pedido nulo!)</option>
-                            <option value="44">44 bandejas</option>
-                            <option value="2">2 bandejas</option>
-                            <option value="73">73 bandejas</option>
-                            <option value="5">5 bandejas</option>
-                            <option value="12">12 bandejas</option>
-                            <option value="4">4 bandejas</option>
-                            <option value="30">30 bandejas</option>
-                        </select>
+                        <label for="qty-silvestre" class="qty-label">Cantidad:</label>
+                        <div class="qty-stepper" role="group" aria-label="Selector de cantidad para Fresa Silvestre">
+                            <button type="button" class="qty-btn" onclick="ajustarCantidad('qty-silvestre', -1)"
+                                aria-label="Disminuir cantidad de Fresa Silvestre">−</button>
+                            <input type="number" id="qty-silvestre" class="qty-input" value="1" min="1" max="99"
+                                onchange="validarCantidad(this)" aria-label="Cantidad de Fresa Silvestre">
+                            <button type="button" class="qty-btn" onclick="ajustarCantidad('qty-silvestre', 1)"
+                                aria-label="Aumentar cantidad de Fresa Silvestre">+</button>
+                        </div>
                     </div>
 
                     <div class="price-row">
@@ -752,7 +815,7 @@
                         <span class="tax-notice">(I.V.A. no incluido)</span>
                     </div>
 
-                    <div class="add-to-cart-btn" onclick="anadirAlCarrito('Fresa de Aranjuez Silvestre')">
+                    <div class="add-to-cart-btn" onclick="anadirAlCarrito('Fresa de Aranjuez Silvestre', 'qty-silvestre')">
                         Añadir al carrito
                     </div>
                 </div>
@@ -774,22 +837,15 @@
                     <a href="#detalles" class="more-link">Leer más</a>
 
                     <div class="qty-row">
-                        <span>Cantidad:</span>
-                        <select class="scrambled-select">
-                            <option value="17">17 tarros (¡salto!)</option>
-                            <option value="3">3 tarros</option>
-                            <option value="85">85 tarros</option>
-                            <option value="1">1 tarro (actual)</option>
-                            <option value="9">9 tarros</option>
-                            <option value="0">0 tarros (¡pedido nulo!)</option>
-                            <option value="44">44 tarros</option>
-                            <option value="2">2 tarros</option>
-                            <option value="73">73 tarros</option>
-                            <option value="5">5 tarros</option>
-                            <option value="12">12 tarros</option>
-                            <option value="4">4 tarros</option>
-                            <option value="30">30 tarros</option>
-                        </select>
+                        <label for="qty-mermelada" class="qty-label">Cantidad:</label>
+                        <div class="qty-stepper" role="group" aria-label="Selector de cantidad para Mermelada Artesana">
+                            <button type="button" class="qty-btn" onclick="ajustarCantidad('qty-mermelada', -1)"
+                                aria-label="Disminuir cantidad de Mermelada Artesana">−</button>
+                            <input type="number" id="qty-mermelada" class="qty-input" value="1" min="1" max="99"
+                                onchange="validarCantidad(this)" aria-label="Cantidad de Mermelada Artesana">
+                            <button type="button" class="qty-btn" onclick="ajustarCantidad('qty-mermelada', 1)"
+                                aria-label="Aumentar cantidad de Mermelada Artesana">+</button>
+                        </div>
                     </div>
 
                     <div class="price-row">
@@ -797,7 +853,7 @@
                         <span class="tax-notice">(I.V.A. no incluido)</span>
                     </div>
 
-                    <div class="add-to-cart-btn" onclick="anadirAlCarrito('Mermelada de Fresón de Aranjuez')">
+                    <div class="add-to-cart-btn" onclick="anadirAlCarrito('Mermelada de Fresón de Aranjuez', 'qty-mermelada')">
                         Añadir al carrito
                     </div>
                 </div>
@@ -819,22 +875,15 @@
                     <a href="#detalles" class="more-link">Leer más</a>
 
                     <div class="qty-row">
-                        <span>Cantidad:</span>
-                        <select class="scrambled-select">
-                            <option value="17">17 tartas (¡salto!)</option>
-                            <option value="3">3 tartas</option>
-                            <option value="85">85 tartas</option>
-                            <option value="1">1 tarta (actual)</option>
-                            <option value="9">9 tartas</option>
-                            <option value="0">0 tartas (¡pedido nulo!)</option>
-                            <option value="44">44 tartas</option>
-                            <option value="2">2 tartas</option>
-                            <option value="73">73 tartas</option>
-                            <option value="5">5 tartas</option>
-                            <option value="12">12 tartas</option>
-                            <option value="4">4 tartas</option>
-                            <option value="30">30 tartas</option>
-                        </select>
+                        <label for="qty-tarta" class="qty-label">Cantidad:</label>
+                        <div class="qty-stepper" role="group" aria-label="Selector de cantidad para Tarta Real">
+                            <button type="button" class="qty-btn" onclick="ajustarCantidad('qty-tarta', -1)"
+                                aria-label="Disminuir cantidad de Tarta Real">−</button>
+                            <input type="number" id="qty-tarta" class="qty-input" value="1" min="1" max="99"
+                                onchange="validarCantidad(this)" aria-label="Cantidad de Tarta Real">
+                            <button type="button" class="qty-btn" onclick="ajustarCantidad('qty-tarta', 1)"
+                                aria-label="Aumentar cantidad de Tarta Real">+</button>
+                        </div>
                     </div>
 
                     <div class="price-row">
@@ -842,7 +891,7 @@
                         <span class="tax-notice">(I.V.A. no incluido)</span>
                     </div>
 
-                    <div class="add-to-cart-btn" onclick="anadirAlCarrito('Tarta Real de Fresones de Aranjuez')">
+                    <div class="add-to-cart-btn" onclick="anadirAlCarrito('Tarta Real de Fresones de Aranjuez', 'qty-tarta')">
                         Añadir al carrito
                     </div>
                 </div>
@@ -993,11 +1042,37 @@
             }
         }
 
-        function anadirAlCarrito(nombreProducto) {
-            carritoContador++;
+        function ajustarCantidad(inputId, delta) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+            let val = parseInt(input.value, 10) || 1;
+            val = Math.max(1, Math.min(99, val + delta));
+            input.value = val;
+        }
+
+        function validarCantidad(input) {
+            let val = parseInt(input.value, 10);
+            if (isNaN(val) || val < 1) {
+                input.value = 1;
+            } else if (val > 99) {
+                input.value = 99;
+            } else {
+                input.value = val;
+            }
+        }
+
+        function anadirAlCarrito(nombreProducto, inputId) {
+            let cantidad = 1;
+            if (inputId) {
+                const input = document.getElementById(inputId);
+                if (input) {
+                    cantidad = parseInt(input.value, 10) || 1;
+                }
+            }
+            carritoContador += cantidad;
             const counterEl = document.getElementById('cart-counter');
             if (counterEl) counterEl.textContent = carritoContador;
-            mostrarToast('🍓 ' + nombreProducto + ' añadido al carrito');
+            mostrarToast('🍓 ' + (cantidad > 1 ? cantidad + 'x ' : '') + nombreProducto + ' añadido al carrito');
         }
 
         function mostrarCarrito() {
